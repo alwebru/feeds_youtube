@@ -141,12 +141,20 @@ class YoutubeParser extends PluginBase implements ParserInterface {
         'label' => $this->t('Channel title'),
         'description' => $this->t('Channel title.'),
       ],
+      'channel_url' => [
+        'label' => $this->t('Channel URL'),
+        'description' => $this->t('The URL of the channel.'),
+      ],
       'category' => [
         'label' => $this->t('Category'),
       ],
       'tags' => [
         'label' => $this->t('Tags'),
         'description' => $this->t('This can be imported directly with Taxonomy "tags" vocabularies.'),
+      ],
+      // @todo remove this item property in future.
+      'type' => [
+        'label' => $this->t('Type'),
       ],
     ];
   }
@@ -159,6 +167,8 @@ class YoutubeParser extends PluginBase implements ParserInterface {
         if (!empty($yt_item['id']['videoId'])) {
           $item->set('video_id', $yt_item['id']['videoId']);
           $item->set('video_url', 'http://www.youtube.com/watch?v=' . $yt_item['id']['videoId']);
+          // @todo remove this item property in future.
+          $item->set('type', 'video');
         }
 
         if (!empty($yt_item['snippet']['title'])) {
@@ -171,6 +181,7 @@ class YoutubeParser extends PluginBase implements ParserInterface {
 
         if (!empty($yt_item['snippet']['channelId'])) {
           $item->set('channel_id', $yt_item['snippet']['channelId']);
+          $item->set('channel_url', 'http://www.youtube.com/channel/' . $yt_item['snippet']['channelId']);
         }
 
         if (!empty($yt_item['snippet']['channelTitle'])) {

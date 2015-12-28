@@ -25,7 +25,10 @@ class YoutubeItem extends BaseItem {
   protected $published_timestamp;
   protected $channel_id;
   protected $channel_title;
+  protected $channel_url;
   protected $category;
   protected $tags;
+  // @todo remove this item property in future.
+  protected $type;
 
 }
