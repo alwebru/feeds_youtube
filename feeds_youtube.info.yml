@@ -1,8 +1,7 @@
-name: Feeds Youtube parser
+name: Feeds Youtube
 type: module
-description: An Youtube feeds parser.
+description: Youtube feeds fetcher and parser.
 core: 8.x
 package: Feeds
 dependencies:
   - feeds
-  - google_api_client
