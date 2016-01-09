@@ -166,7 +166,7 @@ class YoutubeParser extends PluginBase implements ParserInterface {
 
         if (!empty($yt_item['id']['videoId'])) {
           $item->set('video_id', $yt_item['id']['videoId']);
-          $item->set('video_url', 'http://www.youtube.com/watch?v=' . $yt_item['id']['videoId']);
+          $item->set('video_url', 'https://www.youtube.com/watch?v=' . $yt_item['id']['videoId']);
           // @todo remove this item property in future.
           $item->set('type', 'video');
         }
@@ -181,7 +181,7 @@ class YoutubeParser extends PluginBase implements ParserInterface {
 
         if (!empty($yt_item['snippet']['channelId'])) {
           $item->set('channel_id', $yt_item['snippet']['channelId']);
-          $item->set('channel_url', 'http://www.youtube.com/channel/' . $yt_item['snippet']['channelId']);
+          $item->set('channel_url', 'https://www.youtube.com/channel/' . $yt_item['snippet']['channelId']);
         }
 
         if (!empty($yt_item['snippet']['channelTitle'])) {
